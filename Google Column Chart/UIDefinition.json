@@ -1,0 +1,64 @@
+{
+	"model": {
+		"fields": [
+		    {
+                "id": "chartTitle",
+                "type": "text",
+                "title": "Title",
+                "defaultValue": "The Title"
+            }, {
+                "id": "chartSubtitle",
+                "type": "text",
+                "title": "Subtitle",
+                "defaultValue": "The Subtitle"
+            }, {
+                "id": "isStacked",
+                "type": "checkbox",
+                "title": "Stacked",
+                "defaultValue": "false"
+            }, {
+    			"id": "colors",
+    			"type": "textarea",
+    			"title": "Colors",
+    			"defaultValue": ""
+           }, {
+    			"id": "data",
+    			"type": "textarea",
+    			"title": "Data",
+    			"defaultValue": "",
+                "rows": "10"
+           }, {
+                "id": "hAxisTitle",
+                "type": "text",
+                "title": "Title",
+                "defaultValue": "hAxis Title"
+            }, {
+                "id": "vAxisTitle",
+                "type": "text",
+                "title": "Title",
+                "defaultValue": "vAxis Title"
+            }
+    	],
+		"groups": [
+		    {
+				"id": "ChartOptions",
+				"title": "Chart Options",
+				"width": "double",
+				"activeId": "",
+				"childIds": ["chartTitle", "chartSubtitle", "isStacked", "colors", "data"]
+			}, {
+				"id": "hAxis",
+				"title": "hAxis",
+				"width": "double",
+				"activeId": "",
+				"childIds": ["hAxisTitle", "hAxisFormat"]
+			}, {
+				"id": "vAxis",
+				"title": "vAxis",
+				"width": "double",
+				"activeId": "",
+				"childIds": ["vAxisTitle", "vAxisFormat"]
+			}
+		]
+	}
+}

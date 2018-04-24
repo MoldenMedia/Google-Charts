@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+	
+	<head>
+        <style>
+			/* Default widget style to make output match the bouding box */
+			html, body {
+				background: none;
+				margin: 0;
+				padding: 0;
+				height: 100%;
+			}
+
+			/* Add your custom styles here */
+            #chart_div {
+                padding: 0;
+                border: 2px solid #00A5DF;
+				width: 100%;
+				height: 100%;
+            }
+/*
+            #chart_div {
+             padding: 20px 0;
+             height: 600px;
+            }
+*/
+        </style>
+	</head>
+
+	<body>
+	
+	<!-- Your custom html goes here -->
+	
+    <div id="chart_div"></div>	
+
+	<!-- Singular Widget Library -->
+	<script src="https://libs.singular.live/singularwidget/1.0.3/singularwidget.js"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script>
+
+        var strChartColumns = "";
+        var chartColumns;
+        var strChartData = "";
+        var chartData;
+        var strChartOptions = "";
+        var chartOptions;
+        
+        var windowWidth = 0;
+		var windowHeight = 0;
+
+                // locale is english
+        google.charts.load("current", { packages: ["corechart", "bar"], 'language': 'en'});
+        // locale is japan
+        // google.charts.load("current", { packages: ["corechart", "bar"], 'language': 'ja'});
+        // locale is german
+        // google.charts.load("current", { packages: ["corechart", "bar"], 'language': 'de'});
+        google.charts.setOnLoadCallback(drawChart);
+        
+        SingularWidget.init({
+		  onInit: onSingularInit,
+		  onValue: onSingularValue,
+		  onEditComp: onSingularEditComp,
+          onButtonClicked: onSingularButtonClicked
+        });
+
+		window.addEventListener("resize", function() {
+			if(windowWidth != window.innerWidth || windowHeight != window.innerHeight) {
+				windowWidth = window.innerWidth;
+				windowHeight = window.innerHeight;
+        google.charts.setOnLoadCallback(drawChart);
+			}
+		})
+        
+		function onSingularInit() {
+			console.log("onSingularInit"); 
+		}
+		
+/*
+chartColumns:
+  ["Move", "Percentage"]
+
+chartData:
+[
+  ["King's pawn (e4)", 44],
+  ["Queen's pawn (d4)", 31],
+  ["Knight to King 3 (Nf3)", 12],
+  ["Queen's bishop pawn (c4)", 10],
+  ["Other", 3]
+]
+*/
+		function onSingularValue(json) {
+			console.log("onSingularValue", json);
+            if (json.chartData !== undefined && JSON.stringify(json.chartData) != strChartData) {
+                strChartData = json.chartData;
+                chartData = JSON.parse(json.chartData);
+                messagesChanged = true;
+                console.log("onSingularValue: strChartData=[" + strChartData + "]");
+                console.log("onSingularValue: chartData=[" + chartData + "]");
+            }
+            if (json.chartColumns !== undefined && JSON.stringify(json.chartColumns) != strChartColumns) {
+                strChartColumns = json.chartColumns;
+                chartColumns = JSON.parse(json.chartColumns);
+                messagesChanged = true;
+                console.log("onSingularValue: strChartColumns=[" + strChartColumns + "]");
+                console.log("onSingularValue: chartColumns=[" + chartColumns + "]");
+            }
+            if (json.chartOptions !== undefined && JSON.stringify(json.chartOptions) != strChartOptions) {
+                strChartOptions = json.chartOptions;
+                chartOptions = JSON.parse(json.chartOptions);
+                messagesChanged = true;
+                console.log("onSingularValue: strChartOptions=[" + strChartOptions + "]");
+                console.log("onSingularValue: chartOptions=[" + chartOptions + "]");
+            }
+            
+//            google.charts.setOnLoadCallback(drawChart);
+            drawChart();
+		}
+
+		function onSingularButtonClicked(action) {
+			console.log("onSingularButtonClicked", action); 
+
+			/**
+			 * EXAMPLE: Send messages to the editor console
+			 * Message types: info, warning and error
+			 */
+			SingularWidget.log.info({
+				title: 'My Widget',
+				description: 'Hello Singular!'
+			});
+		}
+
+		function onSingularEditComp(fieldId) {
+			return {
+				width: window.innerWidth,
+				height: window.innerHeight,
+				widgetNodes: widgetNodes
+			};
+        }
+
+
+        function drawChart() {
+            var data = new google.visualization.DataTable();
+/*        
+        var dataArray = [
+          ['Move', 'Percentage'],
+          ["King's pawn (e4)", 44],
+          ["Queen's pawn (d4)", 31],
+          ["Knight to King 3 (Nf3)", 12],
+          ["Queen's bishop pawn (c4)", 10],
+          ['Other', 30]
+        ];
+*/  
+           
+          var dataArray = [];
+//          var dataRow = [];
+
+          console.log("drawChart: typeof chartColumns=[" + typeof chartColumns + "]")
+          console.log("drawChart: typeof strChartColumns=[" + typeof strChartColumns + "]")
+/*
+          for (var col in chartColumns) {
+              console.log("drawChart: chartColumns[" + col + "]=[" + chartColumns[col] + "]");
+              dataRow = dataRow.concat(chartColumns);
+
+          }
+*/            
+//          dataArray = dataArray.concat(dataRow);
+          dataArray = dataArray.concat(chartColumns);
+          dataArray = dataArray.concat(chartData);
+
+          console.log("drawChart: ----------------------------------------");
+          console.log("drawChart: dataArray=[" + dataArray + "]");
+          console.log("drawChart: ----------------------------------------");
+
+
+         var data = new google.visualization.arrayToDataTable(dataArray);
+         var options = chartOptions; 
+            
+          var options1 = {
+            "title": "Motivation Level Throughout the Day",
+            "hAxis": {
+              "title": "Time of Day",
+              "format": "h:mm a",
+              "viewWindow": {
+                "min": [7, 30, 0],
+                "max": [17, 30, 0]
+              }
+            },
+            "vAxis": {
+              "title": "Rating (scale of 1-10)"
+            }
+          };
+
+        var options2 = {
+        "legend": { "position": "none" },
+        "chart": {
+        "title": "Chess opening moves",
+        "subtitle": "popularity by percentage" },
+        "axes": {
+        "x": {
+          "0": { "side": "top", "label": "White to move"}
+        }
+        },
+        "bar": { "groupWidth": "90%" }
+        };
+
+          var chart = new google.visualization.ColumnChart(
+            document.getElementById("chart_div")
+          );
+
+          chart.draw(data, options);
+        }
+
+  </script>
+</body>
+</html>
