@@ -1,0 +1,195 @@
+{
+    "model": {
+      "fields": [
+        {
+          "id": "chartColumns",
+          "type": "json",
+          "title": "Define Columns",
+          "height": "100px",
+          "defaultValue": ""
+        },
+        {
+          "id": "chartData",
+          "type": "json",
+          "title": "Data",
+          "height": "180px",
+          "defaultValue": ""
+        },
+        {
+          "id": "chartOptions",
+          "type": "json",
+          "title": "Options",
+          "height": "250px",
+          "defaultValue": ""
+        },
+        {
+          "id": "placeholder_01",
+          "type": "text",
+          "title": "Placeholder 01",
+          "defaultValue": "{{placeholder_01}}"
+        },
+        {
+          "id": "placeholder_02",
+          "type": "text",
+          "title": "Placeholder 02",
+          "defaultValue": "{{placeholder_02}}"
+        },
+        {
+          "id": "placeholder_03",
+          "type": "text",
+          "title": "Placeholder 03",
+          "defaultValue": "{{placeholder_03}}"
+        },
+        {
+          "id": "placeholder_04",
+          "type": "text",
+          "title": "Placeholder 04",
+          "defaultValue": "{{placeholder_04}}"
+        },
+        {
+          "id": "placeholder_05",
+          "type": "text",
+          "title": "Placeholder 05",
+          "defaultValue": "{{placeholder_05}}"
+        },
+        {
+          "id": "placeholder_06",
+          "type": "text",
+          "title": "Placeholder 06",
+          "defaultValue": "{{placeholder_06}}"
+        },
+        {
+          "id": "placeholder_07",
+          "type": "text",
+          "title": "Placeholder 07",
+          "defaultValue": "{{placeholder_07}}"
+        },
+        {
+          "id": "placeholder_08",
+          "type": "text",
+          "title": "Placeholder 08",
+          "defaultValue": "{{placeholder_08}}"
+        },
+        {
+          "id": "placeholder_09",
+          "type": "text",
+          "title": "Placeholder 09",
+          "defaultValue": "{{placeholder_09}}"
+        },
+        {
+          "id": "placeholder_10",
+          "type": "text",
+          "title": "Placeholder 10",
+          "defaultValue": "{{placeholder_10}}"
+        },
+        {
+          "id": "placeholder_11",
+          "type": "text",
+          "title": "Placeholder 11",
+          "defaultValue": "{{placeholder_11}}"
+        },
+        {
+          "id": "placeholder_12",
+          "type": "text",
+          "title": "Placeholder 12",
+          "defaultValue": "{{placeholder_12}}"
+        },
+        {
+          "id": "placeholder_13",
+          "type": "text",
+          "title": "Placeholder 13",
+          "defaultValue": "{{placeholder_13}}"
+        },
+        {
+          "id": "placeholder_14",
+          "type": "text",
+          "title": "Placeholder 14",
+          "defaultValue": "{{placeholder_14}}"
+        },
+        {
+          "id": "placeholder_15",
+          "type": "text",
+          "title": "Placeholder 15",
+          "defaultValue": "{{placeholder_15}}"
+        },
+        {
+          "id": "placeholder_16",
+          "type": "text",
+          "title": "Placeholder 16",
+          "defaultValue": "{{placeholder_16}}"
+        },
+        {
+          "id": "placeholder_17",
+          "type": "text",
+          "title": "Placeholder 17",
+          "defaultValue": "{{placeholder_17}}"
+        },
+        {
+          "id": "placeholder_18",
+          "type": "text",
+          "title": "Placeholder 18",
+          "defaultValue": "{{placeholder_18}}"
+        },
+        {
+          "id": "placeholder_19",
+          "type": "text",
+          "title": "Placeholder 19",
+          "defaultValue": "{{placeholder_19}}"
+        },
+        {
+          "id": "placeholder_20",
+          "type": "text",
+          "title": "Placeholder 20",
+          "defaultValue": "{{placeholder_20}}"
+        }
+      ],
+      "groups": [
+        {
+          "id": "chartDefinitionGroup",
+          "title": "Classic Chart Data and Options",
+          "width": "double",
+          "activeId": "",
+          "childIds": [
+            "chartColumns",
+            "chartData",
+            "chartOptions"          ]
+        },
+        {
+          "id": "placeholderGroup1",
+          "title": "Chart Option Placeholder 1-10",
+          "width": "single",
+          "activeId": "",
+          "childIds": [
+            "placeholder_01",
+            "placeholder_02",
+            "placeholder_03",
+            "placeholder_04",
+            "placeholder_05",
+            "placeholder_06",
+            "placeholder_07",
+            "placeholder_08",
+            "placeholder_09",
+            "placeholder_10"
+          ]
+        },
+        {
+          "id": "placeholderGroup2",
+          "title": "Chart Option Placeholder 11-20",
+          "width": "single",
+          "activeId": "",
+          "childIds": [
+            "placeholder_11",
+            "placeholder_12",
+            "placeholder_13",
+            "placeholder_14",
+            "placeholder_15",
+            "placeholder_16",
+            "placeholder_17",
+            "placeholder_18",
+            "placeholder_19",
+            "placeholder_20"
+          ]
+        }
+      ]
+    }
+  }
