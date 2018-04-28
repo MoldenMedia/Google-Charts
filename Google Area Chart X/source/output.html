@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
-	
-	<head>
+    
+    <head>
         <style>
 			/* Default widget style to make output match the bouding box */
 			html, body {
@@ -12,204 +12,272 @@
 			}
 
 			/* Add your custom styles here */
-            #chart_div {
+            #classicGoogleChart {
                 padding: 0;
-                border: 2px solid #00A5DF;
+                border: 0px none;
 				width: 100%;
 				height: 100%;
             }
-/*
-            #chart_div {
-             padding: 20px 0;
-             height: 600px;
-            }
-*/
         </style>
 	</head>
 
 	<body>
-	
-	<!-- Your custom html goes here -->
-	
-    <div id="chart_div"></div>	
-
-	<!-- Singular Widget Library -->
-	<script src="https://libs.singular.live/singularwidget/1.0.3/singularwidget.js"></script>
-    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <script>
-
-        var strChartColumns = "";
-        var chartColumns;
-        var strChartData = "";
-        var chartData;
-        var strChartOptions = "";
-        var chartOptions;
         
-        var windowWidth = 0;
-		var windowHeight = 0;
-
-                // locale is english
-        google.charts.load('current', {'packages':['corechart']});
-        // locale is japan
-        // google.charts.load("current", { packages: ["corechart", "bar"], 'language': 'ja'});
-        // locale is german
-        // google.charts.load("current", { packages: ["corechart", "bar"], 'language': 'de'});
-        google.charts.setOnLoadCallback(drawChart);
+        <!-- define div for chart -->
+        <div id="classicGoogleChart"></div>
         
-        SingularWidget.init({
-		  onInit: onSingularInit,
-		  onValue: onSingularValue,
-		  onEditComp: onSingularEditComp,
-          onButtonClicked: onSingularButtonClicked
-        });
-
-		window.addEventListener("resize", function() {
-			if(windowWidth != window.innerWidth || windowHeight != window.innerHeight) {
-				windowWidth = window.innerWidth;
-				windowHeight = window.innerHeight;
-        google.charts.setOnLoadCallback(drawChart);
-			}
-		})
+        <!-- Singular Widget Library -->
+        <script src="https://libs.singular.live/singularwidget/1.0.3/singularwidget.js"></script>
+        <!-- Google Charts Loader -->
+        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
         
-		function onSingularInit() {
-			console.log("onSingularInit"); 
-		}
+        <script>
+
+            var strChartColumns = "";
+            var chartColumns;
+            var strChartData = "";
+            var chartData;
+            var strChartOptions = "";
+            var chartOptions;
+            var placeholder_01 = "";
+            var placeholder_02 = "";
+            var placeholder_03 = "";
+            var placeholder_04 = "";
+            var placeholder_05 = "";
+            var placeholder_06 = "";
+            var placeholder_07 = "";
+            var placeholder_08 = "";
+            var placeholder_09 = "";
+            var placeholder_10 = "";
+            var placeholder_11 = "";
+            var placeholder_12 = "";
+            var placeholder_13 = "";
+            var placeholder_14 = "";
+            var placeholder_15 = "";
+            var placeholder_16 = "";
+            var placeholder_17 = "";
+            var placeholder_18 = "";
+            var placeholder_19 = "";
+            var placeholder_20 = "";
+        
+            var googleChartData;
+            var googleChartOptions; 
+            var googleChart;
+
+            var windowWidth = 0;
+            var windowHeight = 0;
+
+            // locale is english
+            google.charts.load("current", { packages: ["corechart", "bar"], 'language': 'en'});
+            google.charts.setOnLoadCallback(initGoogleChart);
+        
+            SingularWidget.init({
+                onInit: onSingularInit,
+                onValue: onSingularValue,
+                onEditComp: onSingularEditComp,
+                onButtonClicked: onSingularButtonClicked,
+                onAnimation: onSingularAnimation
+            });
+            
+            window.addEventListener("resize", function() {
+                if(windowWidth != window.innerWidth || windowHeight != window.innerHeight) {
+                    windowWidth = window.innerWidth;
+                    windowHeight = window.innerHeight;
+                    google.charts.setOnLoadCallback(drawChart);
+                }
+            })
+        
+            function onSingularInit() {
+                console.log("onSingularInit"); 
+            }
 		
-/*
-chartColumns:
-  ["Move", "Percentage"]
+            function onSingularAnimation(msg) { 
+                console.log("onSingularAnimation(" + msg + ")"); 
+                drawChart();
+            }
 
-chartData:
-[
-  ["King's pawn (e4)", 44],
-  ["Queen's pawn (d4)", 31],
-  ["Knight to King 3 (Nf3)", 12],
-  ["Queen's bishop pawn (c4)", 10],
-  ["Other", 3]
-]
-*/
-		function onSingularValue(json) {
-			console.log("onSingularValue", json);
-            if (json.chartData !== undefined && JSON.stringify(json.chartData) != strChartData) {
-                strChartData = json.chartData;
-                chartData = JSON.parse(json.chartData);
-                messagesChanged = true;
-                console.log("onSingularValue: strChartData=[" + strChartData + "]");
-                console.log("onSingularValue: chartData=[" + chartData + "]");
-            }
-            if (json.chartColumns !== undefined && JSON.stringify(json.chartColumns) != strChartColumns) {
-                strChartColumns = json.chartColumns;
-                chartColumns = JSON.parse(json.chartColumns);
-                messagesChanged = true;
-                console.log("onSingularValue: strChartColumns=[" + strChartColumns + "]");
-                console.log("onSingularValue: chartColumns=[" + chartColumns + "]");
-            }
-            if (json.chartOptions !== undefined && JSON.stringify(json.chartOptions) != strChartOptions) {
-                strChartOptions = json.chartOptions;
-                chartOptions = JSON.parse(json.chartOptions);
-                messagesChanged = true;
-                console.log("onSingularValue: strChartOptions=[" + strChartOptions + "]");
-                console.log("onSingularValue: chartOptions=[" + chartOptions + "]");
-            }
+            function onSingularValue(json) {
+            
+                console.log("onSingularValue", json);
+                if (json.chartData !== undefined && JSON.stringify(json.chartData) != strChartData) {
+                    strChartData = json.chartData;
+                    chartData = JSON.parse(json.chartData);
+                    console.log("onSingularValue: strChartData=[" + strChartData + "]");
+                    console.log("onSingularValue: chartData=[" + chartData + "]");
+                }
+                if (json.chartColumns !== undefined && JSON.stringify(json.chartColumns) != strChartColumns) {
+                    strChartColumns = json.chartColumns;
+                    chartColumns = JSON.parse(json.chartColumns);
+                    console.log("onSingularValue: strChartColumns=[" + strChartColumns + "]");
+                    console.log("onSingularValue: chartColumns=[" + chartColumns + "]");
+                }
+                if (json.chartOptions !== undefined && JSON.stringify(json.chartOptions) != strChartOptions) {
+                    strChartOptions = json.chartOptions;
+                    chartOptions = JSON.parse(json.chartOptions);
+                    console.log("onSingularValue: strChartOptions=[" + strChartOptions + "]");
+                    console.log("onSingularValue: chartOptions=[" + chartOptions + "]");
+                }
+                if (json.placeholder_01 !== undefined && JSON.stringify(json.placeholder_01) != strChartOptions) {
+                    placeholder_01 = json.placeholder_01;
+                    console.log("onSingularValue: placeholder_01=[" + placeholder_01 + "]");
+                }
+                if (json.placeholder_02 !== undefined && JSON.stringify(json.placeholder_02) != strChartOptions) {
+                    placeholder_02 = json.placeholder_02;
+                    console.log("onSingularValue: placeholder_02=[" + placeholder_02 + "]");
+                }
+                if (json.placeholder_03 !== undefined && JSON.stringify(json.placeholder_03) != strChartOptions) {
+                    placeholder_03 = json.placeholder_03;
+                    console.log("onSingularValue: placeholder_03=[" + placeholder_03 + "]");
+                }
+                if (json.placeholder_04 !== undefined && JSON.stringify(json.placeholder_04) != strChartOptions) {
+                    placeholder_04 = json.placeholder_04;
+                    console.log("onSingularValue: placeholder_04=[" + placeholder_04 + "]");
+                }
+                if (json.placeholder_05 !== undefined && JSON.stringify(json.placeholder_05) != strChartOptions) {
+                    placeholder_05 = json.placeholder_05;
+                    console.log("onSingularValue: placeholder_05=[" + placeholder_05 + "]");
+                }
+                if (json.placeholder_06 !== undefined && JSON.stringify(json.placeholder_06) != strChartOptions) {
+                    placeholder_06 = json.placeholder_06;
+                    console.log("onSingularValue: placeholder_06=[" + placeholder_06 + "]");
+                }
+                if (json.placeholder_07 !== undefined && JSON.stringify(json.placeholder_07) != strChartOptions) {
+                    placeholder_07 = json.placeholder_07;
+                    console.log("onSingularValue: placeholder_07=[" + placeholder_07 + "]");
+                }
+                if (json.placeholder_08 !== undefined && JSON.stringify(json.placeholder_08) != strChartOptions) {
+                    placeholder_08 = json.placeholder_08;
+                    console.log("onSingularValue: placeholder_08=[" + placeholder_08 + "]");
+                }
+                if (json.placeholder_09 !== undefined && JSON.stringify(json.placeholder_09) != strChartOptions) {
+                    placeholder_09 = json.placeholder_09;
+                    console.log("onSingularValue: placeholder_09=[" + placeholder_09 + "]");
+                }
+                if (json.placeholder_10 !== undefined && JSON.stringify(json.placeholder_10) != strChartOptions) {
+                    placeholder_10 = json.placeholder_10;
+                    console.log("onSingularValue: placeholder_10=[" + placeholder_10 + "]");
+                }
+                if (json.placeholder_11 !== undefined && JSON.stringify(json.placeholder_11) != strChartOptions) {
+                    placeholder_11 = json.placeholder_11;
+                    console.log("onSingularValue: placeholder_11=[" + placeholder_11 + "]");
+                }
+                if (json.placeholder_12 !== undefined && JSON.stringify(json.placeholder_12) != strChartOptions) {
+                    placeholder_12 = json.placeholder_12;
+                    console.log("onSingularValue: placeholder_12=[" + placeholder_12 + "]");
+                }
+                if (json.placeholder_13 !== undefined && JSON.stringify(json.placeholder_13) != strChartOptions) {
+                    placeholder_13 = json.placeholder_13;
+                    console.log("onSingularValue: placeholder_13=[" + placeholder_13 + "]");
+                }
+                if (json.placeholder_14 !== undefined && JSON.stringify(json.placeholder_14) != strChartOptions) {
+                    placeholder_14 = json.placeholder_14;
+                    console.log("onSingularValue: placeholder_14=[" + placeholder_14 + "]");
+                }
+                if (json.placeholder_15 !== undefined && JSON.stringify(json.placeholder_15) != strChartOptions) {
+                    placeholder_15 = json.placeholder_15;
+                    console.log("onSingularValue: placeholder_15=[" + placeholder_15 + "]");
+                }
+                if (json.placeholder_16 !== undefined && JSON.stringify(json.placeholder_16) != strChartOptions) {
+                    placeholder_16 = json.placeholder_16;
+                    console.log("onSingularValue: placeholder_16=[" + placeholder_16 + "]");
+                }
+                if (json.placeholder_17 !== undefined && JSON.stringify(json.placeholder_17) != strChartOptions) {
+                    placeholder_17 = json.placeholder_17;
+                    console.log("onSingularValue: placeholder_17=[" + placeholder_17 + "]");
+                }
+                if (json.placeholder_18 !== undefined && JSON.stringify(json.placeholder_18) != strChartOptions) {
+                    placeholder_18 = json.placeholder_18;
+                    console.log("onSingularValue: placeholder_18=[" + placeholder_18 + "]");
+                }
+                if (json.placeholder_19 !== undefined && JSON.stringify(json.placeholder_19) != strChartOptions) {
+                    placeholder_19 = json.placeholder_19;
+                    console.log("onSingularValue: placeholder_19=[" + placeholder_19 + "]");
+                }
+                if (json.placeholder_20 !== undefined && JSON.stringify(json.placeholder_20) != strChartOptions) {
+                    placeholder_20 = json.placeholder_20;
+                    console.log("onSingularValue: placeholder_20=[" + placeholder_20 + "]");
+                }
             
 //            google.charts.setOnLoadCallback(drawChart);
-            drawChart();
-		}
-
-		function onSingularButtonClicked(action) {
-			console.log("onSingularButtonClicked", action); 
-
-			/**
-			 * EXAMPLE: Send messages to the editor console
-			 * Message types: info, warning and error
-			 */
-			SingularWidget.log.info({
-				title: 'My Widget',
-				description: 'Hello Singular!'
-			});
-		}
-
-		function onSingularEditComp(fieldId) {
-			return {
-				width: window.innerWidth,
-				height: window.innerHeight,
-				widgetNodes: widgetNodes
-			};
-        }
-
-
-        function drawChart() {
-            var data = new google.visualization.DataTable();
-/*        
-        var dataArray = [
-          ['Move', 'Percentage'],
-          ["King's pawn (e4)", 44],
-          ["Queen's pawn (d4)", 31],
-          ["Knight to King 3 (Nf3)", 12],
-          ["Queen's bishop pawn (c4)", 10],
-          ['Other', 30]
-        ];
-*/  
-           
-          var dataArray = [];
-//          var dataRow = [];
-
-          console.log("drawChart: typeof chartColumns=[" + typeof chartColumns + "]")
-          console.log("drawChart: typeof strChartColumns=[" + typeof strChartColumns + "]")
-/*
-          for (var col in chartColumns) {
-              console.log("drawChart: chartColumns[" + col + "]=[" + chartColumns[col] + "]");
-              dataRow = dataRow.concat(chartColumns);
-
-          }
-*/            
-//          dataArray = dataArray.concat(dataRow);
-          dataArray = dataArray.concat(chartColumns);
-          dataArray = dataArray.concat(chartData);
-
-          console.log("drawChart: ----------------------------------------");
-          console.log("drawChart: dataArray=[" + dataArray + "]");
-          console.log("drawChart: ----------------------------------------");
-
-
-         var data = new google.visualization.arrayToDataTable(dataArray);
-         var options = chartOptions; 
+                drawChart();
             
-          var options1 = {
-            "title": "Motivation Level Throughout the Day",
-            "hAxis": {
-              "title": "Time of Day",
-              "format": "h:mm a",
-              "viewWindow": {
-                "min": [7, 30, 0],
-                "max": [17, 30, 0]
-              }
-            },
-            "vAxis": {
-              "title": "Rating (scale of 1-10)"
             }
-          };
 
-        var options2 = {
-        "legend": { "position": "none" },
-        "chart": {
-        "title": "Chess opening moves",
-        "subtitle": "popularity by percentage" },
-        "axes": {
-        "x": {
-          "0": { "side": "top", "label": "White to move"}
-        }
-        },
-        "bar": { "groupWidth": "90%" }
-        };
+            function onSingularButtonClicked(action) {
+                console.log("onSingularButtonClicked", action); 
 
-          var chart = new google.visualization.AreaChart(
-            document.getElementById("chart_div")
-          );
+                /**
+                * EXAMPLE: Send messages to the editor console
+                * Message types: info, warning and error
+                */
+                SingularWidget.log.info({
+                    title: 'My Widget',
+				    description: 'Hello Singular!'
+                });
+            }
 
-          chart.draw(data, options);
-        }
+            function onSingularEditComp(fieldId) {
+                return {
+                    width: window.innerWidth,
+				    height: window.innerHeight,
+				    widgetNodes: widgetNodes
+                };
+            }
 
-  </script>
-</body>
+            function initGoogleChart() {
+
+                googleChart = new google.visualization.AreaChart(document.getElementById("classicGoogleChart"));
+                drawChart();
+
+            }
+
+            function drawChart() {
+                var dataArray = [];
+
+                console.log("drawChart: typeof chartColumns=[" + typeof chartColumns + "]")
+                console.log("drawChart: typeof strChartColumns=[" + typeof strChartColumns + "]")
+
+                dataArray = dataArray.concat(chartColumns);
+                dataArray = dataArray.concat(chartData);
+
+                console.log("drawChart: ----------------------------------------");
+                console.log("drawChart: dataArray=[" + dataArray + "]");
+                console.log("drawChart: ----------------------------------------");
+
+                googleChartData = new google.visualization.arrayToDataTable(dataArray);
+                googleChartOptions = substitudePlaceholder(strChartOptions); 
+                googleChart.draw(googleChartData, googleChartOptions);
+            }
+
+            function substitudePlaceholder(strJSON) {
+                strJSON = strJSON.replace(/"{{placeholder_01}}"/g, placeholder_01);
+                strJSON = strJSON.replace(/"{{placeholder_02}}"/g, placeholder_02);
+                strJSON = strJSON.replace(/"{{placeholder_03}}"/g, placeholder_03);
+                strJSON = strJSON.replace(/"{{placeholder_04}}"/g, placeholder_04);
+                strJSON = strJSON.replace(/"{{placeholder_05}}"/g, placeholder_05);
+                strJSON = strJSON.replace(/"{{placeholder_06}}"/g, placeholder_06);
+                strJSON = strJSON.replace(/"{{placeholder_07}}"/g, placeholder_07);
+                strJSON = strJSON.replace(/"{{placeholder_08}}"/g, placeholder_08);
+                strJSON = strJSON.replace(/"{{placeholder_09}}"/g, placeholder_09);
+                strJSON = strJSON.replace(/"{{placeholder_10}}"/g, placeholder_10);
+                strJSON = strJSON.replace(/"{{placeholder_11}}"/g, placeholder_11);
+                strJSON = strJSON.replace(/"{{placeholder_12}}"/g, placeholder_12);
+                strJSON = strJSON.replace(/"{{placeholder_13}}"/g, placeholder_13);
+                strJSON = strJSON.replace(/"{{placeholder_14}}"/g, placeholder_14);
+                strJSON = strJSON.replace(/"{{placeholder_15}}"/g, placeholder_15);
+                strJSON = strJSON.replace(/"{{placeholder_16}}"/g, placeholder_16);
+                strJSON = strJSON.replace(/"{{placeholder_17}}"/g, placeholder_17);
+                strJSON = strJSON.replace(/"{{placeholder_18}}"/g, placeholder_18);
+                strJSON = strJSON.replace(/"{{placeholder_19}}"/g, placeholder_19);
+                strJSON = strJSON.replace(/"{{placeholder_20}}"/g, placeholder_20);
+                console.log("substitudePlaceholder: ----------------------------------------");
+                console.log("substitudePlaceholder: strJSON=[" + strJSON + "]");
+                console.log("substitudePlaceholder: ----------------------------------------");
+                return JSON.parse(strJSON)
+            }
+
+        </script>
+    
+    </body>
+    
 </html>
