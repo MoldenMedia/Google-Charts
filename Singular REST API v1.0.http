@@ -1,0 +1,33 @@
+
+// Get all Compositions in an account
+// This can be SLOW!!!
+
+GET https://app.singular.live/apiv1/compositions HTTP/1.1
+Authorization: Basic api@singular.live Singapore
+
+###
+
+// Get details of one Composition
+GET https://app.singular.live/apiv1/compositions/39067 HTTP/1.1
+Authorization: Basic api@singular.live Singapore
+
+###
+
+curl --request GET \
+  --url https://app.singular.live/apiv1/compositions
+
+###
+
+PUT https://app.singular.live/apiv1/appinstances/8963/control HTTP/1.1
+Authorization: Basic api@singular.live Singapore
+
+[{
+  "compositionName": "Baseline",
+  "animation": {
+      "action": "play",
+      "from": "Out1",
+      "to": "In"
+    }
+}]
+
+###

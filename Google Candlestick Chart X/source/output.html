@@ -68,7 +68,7 @@
             var windowHeight = 0;
 
             // locale is english
-            google.charts.load("current", { packages: ["corechart", "bar"], 'language': 'en'});
+            google.charts.load('current', {'packages':['corechart'], 'language': 'en'});
             google.charts.setOnLoadCallback(initGoogleChart);
         
             SingularWidget.init({
@@ -105,12 +105,14 @@
                     console.log("onSingularValue: strChartData=[" + strChartData + "]");
                     console.log("onSingularValue: chartData=[" + chartData + "]");
                 }
+/*
                 if (json.chartColumns !== undefined && JSON.stringify(json.chartColumns) != strChartColumns) {
                     strChartColumns = json.chartColumns;
                     chartColumns = JSON.parse(json.chartColumns);
                     console.log("onSingularValue: strChartColumns=[" + strChartColumns + "]");
                     console.log("onSingularValue: chartColumns=[" + chartColumns + "]");
                 }
+*/
                 if (json.chartOptions !== undefined && JSON.stringify(json.chartOptions) != strChartOptions) {
                     strChartOptions = json.chartOptions;
                     chartOptions = JSON.parse(json.chartOptions);
@@ -226,7 +228,7 @@
 
             function initGoogleChart() {
 
-                googleChart = new google.visualization.LineChart(document.getElementById("classicGoogleChart"));
+                googleChart = new google.visualization.CandlestickChart(document.getElementById("classicGoogleChart"));
                 drawChart();
 
             }
@@ -237,14 +239,14 @@
                 console.log("drawChart: typeof chartColumns=[" + typeof chartColumns + "]")
                 console.log("drawChart: typeof strChartColumns=[" + typeof strChartColumns + "]")
 
-                dataArray = dataArray.concat(chartColumns);
+//                dataArray = dataArray.concat(chartColumns);
                 dataArray = dataArray.concat(chartData);
 
                 console.log("drawChart: ----------------------------------------");
                 console.log("drawChart: dataArray=[" + dataArray + "]");
                 console.log("drawChart: ----------------------------------------");
 
-                googleChartData = new google.visualization.arrayToDataTable(dataArray);
+                googleChartData = new google.visualization.arrayToDataTable(dataArray, true);
                 googleChartOptions = substitudePlaceholder(strChartOptions); 
                 googleChart.draw(googleChartData, googleChartOptions);
             }

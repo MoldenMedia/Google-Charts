@@ -1,0 +1,195 @@
+{
+    "model": {
+      "fields": [
+        {
+          "id": "chartColumns",
+          "type": "json",
+          "title": "Define Columns",
+          "height": "100px",
+          "defaultValue": ""
+        },
+        {
+          "id": "chartData",
+          "type": "json",
+          "title": "Data",
+          "height": "180px",
+          "defaultValue": ""
+        },
+        {
+          "id": "chartOptions",
+          "type": "json",
+          "title": "Options",
+          "height": "250px",
+          "defaultValue": ""
+        },
+        {
+          "id": "placeholder_01",
+          "type": "text",
+          "title": "Placeholder 01",
+          "defaultValue": ""
+        },
+        {
+          "id": "placeholder_02",
+          "type": "text",
+          "title": "Placeholder 02",
+          "defaultValue": ""
+        },
+        {
+          "id": "placeholder_03",
+          "type": "text",
+          "title": "Placeholder 03",
+          "defaultValue": ""
+        },
+        {
+          "id": "placeholder_04",
+          "type": "text",
+          "title": "Placeholder 04",
+          "defaultValue": ""
+        },
+        {
+          "id": "placeholder_05",
+          "type": "text",
+          "title": "Placeholder 05",
+          "defaultValue": ""
+        },
+        {
+          "id": "placeholder_06",
+          "type": "text",
+          "title": "Placeholder 06",
+          "defaultValue": ""
+        },
+        {
+          "id": "placeholder_07",
+          "type": "text",
+          "title": "Placeholder 07",
+          "defaultValue": ""
+        },
+        {
+          "id": "placeholder_08",
+          "type": "text",
+          "title": "Placeholder 08",
+          "defaultValue": ""
+        },
+        {
+          "id": "placeholder_09",
+          "type": "text",
+          "title": "Placeholder 09",
+          "defaultValue": ""
+        },
+        {
+          "id": "placeholder_10",
+          "type": "text",
+          "title": "Placeholder 10",
+          "defaultValue": ""
+        },
+        {
+          "id": "placeholder_11",
+          "type": "text",
+          "title": "Placeholder 11",
+          "defaultValue": ""
+        },
+        {
+          "id": "placeholder_12",
+          "type": "text",
+          "title": "Placeholder 12",
+          "defaultValue": ""
+        },
+        {
+          "id": "placeholder_13",
+          "type": "text",
+          "title": "Placeholder 13",
+          "defaultValue": ""
+        },
+        {
+          "id": "placeholder_14",
+          "type": "text",
+          "title": "Placeholder 14",
+          "defaultValue": ""
+        },
+        {
+          "id": "placeholder_15",
+          "type": "text",
+          "title": "Placeholder 15",
+          "defaultValue": ""
+        },
+        {
+          "id": "placeholder_16",
+          "type": "text",
+          "title": "Placeholder 16",
+          "defaultValue": ""
+        },
+        {
+          "id": "placeholder_17",
+          "type": "text",
+          "title": "Placeholder 17",
+          "defaultValue": ""
+        },
+        {
+          "id": "placeholder_18",
+          "type": "text",
+          "title": "Placeholder 18",
+          "defaultValue": ""
+        },
+        {
+          "id": "placeholder_19",
+          "type": "text",
+          "title": "Placeholder 19",
+          "defaultValue": ""
+        },
+        {
+          "id": "placeholder_20",
+          "type": "text",
+          "title": "Placeholder 20",
+          "defaultValue": ""
+        }
+      ],
+      "groups": [
+        {
+          "id": "chartDefinitionGroup",
+          "title": "Classic Chart Data and Options",
+          "width": "double",
+          "activeId": "",
+          "childIds": [
+            "chartColumns",
+            "chartData",
+            "chartOptions"          ]
+        },
+        {
+          "id": "placeholderGroup1",
+          "title": "Chart Option Placeholder 1-10",
+          "width": "single",
+          "activeId": "",
+          "childIds": [
+            "placeholder_01",
+            "placeholder_02",
+            "placeholder_03",
+            "placeholder_04",
+            "placeholder_05",
+            "placeholder_06",
+            "placeholder_07",
+            "placeholder_08",
+            "placeholder_09",
+            "placeholder_10"
+          ]
+        },
+        {
+          "id": "placeholderGroup2",
+          "title": "Chart Option Placeholder 11-20",
+          "width": "single",
+          "activeId": "",
+          "childIds": [
+            "placeholder_11",
+            "placeholder_12",
+            "placeholder_13",
+            "placeholder_14",
+            "placeholder_15",
+            "placeholder_16",
+            "placeholder_17",
+            "placeholder_18",
+            "placeholder_19",
+            "placeholder_20"
+          ]
+        }
+      ]
+    }
+  }
